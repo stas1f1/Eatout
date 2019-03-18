@@ -1,0 +1,22 @@
+<resources>
+    <string name="eout_app_name">Shrine</string>
+    <string name="eout_hint_username">Username</string>
+    <string name="eout_hint_password">Password</string>
+    <string name="eout_button_next">Next</string>
+    <string name="eout_button_cancel">Cancel</string>
+    <string name="eout_error_password">Password must contain at least 8 characters.</string>
+    <string name="eout_filter_title">Filter</string>
+    <string name="eout_search_title">Search</string>
+    <string name="eout_product_title">Title</string>
+    <string name="eout_product_description">Secondary text</string>
+
+    <!-- Shrine backdrop menu labels -->
+    <string name="eout_featured_label">Featured</string>
+    <string name="eout_apartment_label">Apartment</string>
+    <string name="eout_accessories_label">Accessories</string>
+    <string name="eout_shoes_label">Shoes</string>
+    <string name="eout_tops_label">Tops</string>
+    <string name="eout_bottoms_label">Bottoms</string>
+    <string name="eout_dresses_label">Dresses</string>
+    <string name="eout_account_label">My Account</string>
+</resources>
