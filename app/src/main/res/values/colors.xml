@@ -4,10 +4,12 @@
     <color name="colorPrimaryDark">#A76571</color>
     <color name="colorAccent">#DDC8C4</color>
     <color name="textColorPrimary">#1c1c21</color>
-    <color name="toolbarIconColor">#FFCF44</color>
-    <color name="loginPageBackgroundColor">#414149</color>
-    <color name="productGridBackgroundColor">#414149</color>
-    <color name="colorControlActivated">#D8DCFF</color>
+    <color name="textColorLight">#FFFFFF</color>
+    <color name="toolbarIconColor">#FFFFFF</color>
+    <color name="backdropBackgroundColor">#FFFFFF</color>
+    <color name="loginPageBackgroundColor">#FFFFFF</color>
+    <color name="productGridBackgroundColor">#FFFFFF</color>
+    <color name="colorControlActivated">#C38D94</color>
 
 
 </resources>

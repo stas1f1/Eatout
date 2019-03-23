@@ -19,25 +19,28 @@ public class NavigationIconClickListener implements View.OnClickListener {
 
     private final AnimatorSet animatorSet = new AnimatorSet();
     private Context context;
+    private View toolbar;
     private View sheet;
     private Interpolator interpolator;
     private int height;
+    private int width;
     private boolean backdropShown = false;
     private Drawable openIcon;
     private Drawable closeIcon;
 
-    NavigationIconClickListener(Context context, View sheet) {
-        this(context, sheet, null);
+    NavigationIconClickListener(Context context, View toolbar,  View sheet) {
+        this(context, toolbar, sheet, null);
     }
 
-    NavigationIconClickListener(Context context, View sheet, @Nullable Interpolator interpolator) {
-        this(context, sheet, interpolator, null, null);
+    NavigationIconClickListener(Context context, View toolbar, View sheet, @Nullable Interpolator interpolator) {
+        this(context, toolbar, sheet, interpolator, null, null);
     }
 
     NavigationIconClickListener(
-            Context context, View sheet, @Nullable Interpolator interpolator,
+            Context context, View toolbar, View sheet, @Nullable Interpolator interpolator,
             @Nullable Drawable openIcon, @Nullable Drawable closeIcon) {
         this.context = context;
+        this.toolbar = toolbar;
         this.sheet = sheet;
         this.interpolator = interpolator;
         this.openIcon = openIcon;
@@ -46,6 +49,7 @@ public class NavigationIconClickListener implements View.OnClickListener {
         DisplayMetrics displayMetrics = new DisplayMetrics();
         ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         height = displayMetrics.heightPixels;
+        width = displayMetrics.widthPixels;
     }
 
     @Override
@@ -59,15 +63,20 @@ public class NavigationIconClickListener implements View.OnClickListener {
 
         updateIcon(view);
 
-        final int translateY = height -
-                context.getResources().getDimensionPixelSize(R.dimen.eout_product_grid_reveal_height);
+        final int translateX = width -
+                context.getResources().getDimensionPixelSize(R.dimen.eout_product_grid_reveal_width);
 
-        ObjectAnimator animator = ObjectAnimator.ofFloat(sheet, "translationY", backdropShown ? translateY : 0);
+        ObjectAnimator tbanimator = ObjectAnimator.ofFloat(toolbar, "translationX", backdropShown ? translateX : 0);
+        ObjectAnimator animator = ObjectAnimator.ofFloat(sheet, "translationX", backdropShown ? translateX : 0);
+        tbanimator.setDuration(500);
         animator.setDuration(500);
         if (interpolator != null) {
+            tbanimator.setInterpolator(interpolator);
             animator.setInterpolator(interpolator);
         }
+        animatorSet.play(tbanimator);
         animatorSet.play(animator);
+        tbanimator.start();
         animator.start();
     }
 

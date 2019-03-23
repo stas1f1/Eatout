@@ -1,47 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.design.button.MaterialButton
-        style="@style/Widget.Shrine.Button.TextButton"
+        style="@style/Widget.Eatout.Button.BackdropButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/eout_featured_label" />
+        android:text="@string/eout_cart_label"
+        android:textAlignment="textStart"
+        android:gravity="start" />
 
     <android.support.design.button.MaterialButton
-        style="@style/Widget.Shrine.Button.TextButton"
+        style="@style/Widget.Eatout.Button.BackdropButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/eout_apartment_label" />
+        android:text="@string/eout_food_label"
+        android:textAlignment="viewStart"
+        android:gravity="start" />
 
     <android.support.design.button.MaterialButton
-        style="@style/Widget.Shrine.Button.TextButton"
+        style="@style/Widget.Eatout.Button.BackdropButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/eout_accessories_label" />
+        android:text="@string/eout_sales_label"
+        android:textAlignment="viewStart"
+        android:gravity="start" />
 
     <android.support.design.button.MaterialButton
-        style="@style/Widget.Shrine.Button.TextButton"
+        style="@style/Widget.Eatout.Button.BackdropButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/eout_shoes_label" />
+        android:text="@string/eout_favourites_label"
+        android:textAlignment="viewStart"
+        android:gravity="start" />
 
     <android.support.design.button.MaterialButton
-        style="@style/Widget.Shrine.Button.TextButton"
+        style="@style/Widget.Eatout.Button.BackdropButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/eout_tops_label" />
+        android:text="@string/eout_orders_label"
+        android:textAlignment="viewStart"
+        android:gravity="start" />
 
     <android.support.design.button.MaterialButton
-        style="@style/Widget.Shrine.Button.TextButton"
+        style="@style/Widget.Eatout.Button.BackdropButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/eout_bottoms_label" />
+        android:text="@string/eout_map_label"
+        android:textAlignment="viewStart"
+        android:gravity="start" />
 
     <android.support.design.button.MaterialButton
-        style="@style/Widget.Shrine.Button.TextButton"
+        style="@style/Widget.Eatout.Button.BackdropButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/eout_dresses_label" />
+        android:text="@string/eout_preferences_label"
+        android:textAlignment="viewStart"
+        android:gravity="start" />
 
     <View
         android:layout_width="56dp"
@@ -50,9 +65,9 @@
         android:background="?android:attr/textColorPrimary" />
 
     <android.support.design.button.MaterialButton
-        style="@style/Widget.Shrine.Button.TextButton"
+        style="@style/Widget.Eatout.Button.BackdropButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/eout_account_label" />
+        android:text="@string/eout_feedback_label" />
 
 </merge>

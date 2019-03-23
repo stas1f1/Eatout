@@ -12,7 +12,7 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/app_bar"
-            style="@style/Widget.Shrine.Toolbar"
+            style="@style/Widget.Eatout.Toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:paddingStart="12dp"
@@ -20,7 +20,7 @@
             android:paddingEnd="12dp"
             android:paddingRight="12dp"
             app:contentInsetStart="0dp"
-            app:navigationIcon="@drawable/eout_branded_menu"
+            app:navigationIcon="@drawable/eout_menu"
             app:title="@string/eout_app_name" />
     </android.support.design.widget.AppBarLayout>
 
@@ -30,7 +30,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="56dp"
         android:background="@color/productGridBackgroundColor"
-        android:elevation="8dp"
+        android:elevation="4dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <android.support.v7.widget.RecyclerView
@@ -41,14 +41,16 @@
     </android.support.v4.widget.NestedScrollView>
 
     <LinearLayout
-        style="@style/Widget.Shrine.Backdrop"
+        style="@style/Widget.Eatout.Backdrop"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal"
+        android:gravity="left"
         android:orientation="vertical"
-        android:paddingTop="100dp"
+        android:paddingTop="30dp"
+        android:paddingLeft="20dp"
         android:paddingBottom="100dp">
 
         <include layout="@layout/eout_backdrop" />
+
     </LinearLayout>
 </FrameLayout>
