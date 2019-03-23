@@ -12,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
 
 import com.fiit.eatout.eatout.network.ProductEntry;
 
@@ -27,11 +26,12 @@ public class ProductGridFragment extends Fragment {
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        // Inflate the layout for this fragment with the ProductGrid theme
         View view = inflater.inflate(R.layout.eout_product_grid_fragment, container, false);
 
-        // Set up the toolbar
+        // Set up the tool bar
         setUpToolbar(view);
+
         // Set up the RecyclerView
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -43,12 +43,6 @@ public class ProductGridFragment extends Fragment {
         int smallPadding = getResources().getDimensionPixelSize(R.dimen.eout_product_grid_spacing_small);
         recyclerView.addItemDecoration(new ProductGridItemDecoration(largePadding, smallPadding));
 
-        /*
-        // Set cut corner background for API 23+
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            view.findViewById(R.id.product_grid).setBackground(getContext().getDrawable(R.drawable.eout_product_grid_background_shape));
-        }
-        */
         return view;
     }
 
@@ -58,13 +52,6 @@ public class ProductGridFragment extends Fragment {
         if (activity != null) {
             activity.setSupportActionBar(toolbar);
         }
-
-        toolbar.setNavigationOnClickListener(new NavigationIconClickListener(
-                getContext(),
-                view.findViewById(R.id.product_grid),
-                new AccelerateDecelerateInterpolator(),
-                getContext().getResources().getDrawable(R.drawable.eout_branded_menu), // Menu open icon
-                getContext().getResources().getDrawable(R.drawable.eout_close_menu))); // Menu close icon
     }
 
     @Override
@@ -72,4 +59,5 @@ public class ProductGridFragment extends Fragment {
         menuInflater.inflate(R.menu.eout_toolbar_menu, menu);
         super.onCreateOptionsMenu(menu, menuInflater);
     }
+
 }

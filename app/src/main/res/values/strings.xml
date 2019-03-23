@@ -1,5 +1,5 @@
 <resources>
-    <string name="eout_app_name">Shrine</string>
+    <string name="eout_app_name">eatout</string>
     <string name="eout_hint_username">Username</string>
     <string name="eout_hint_password">Password</string>
     <string name="eout_button_next">Next</string>

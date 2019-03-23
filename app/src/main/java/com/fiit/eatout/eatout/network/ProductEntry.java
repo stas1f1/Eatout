@@ -1,5 +1,6 @@
 package com.fiit.eatout.eatout.network;
 
+
 import android.content.res.Resources;
 import android.net.Uri;
 import android.util.Log;

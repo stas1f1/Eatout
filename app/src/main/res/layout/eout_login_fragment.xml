@@ -23,7 +23,8 @@
             android:layout_marginTop="48dp"
             android:layout_marginBottom="16dp"
             android:tint="?android:attr/textColorPrimary"
-            app:srcCompat="@drawable/eout_logo" />
+            app:srcCompat="@drawable/eout_logo"
+            tools:ignore="VectorDrawableCompat" />
 
         <TextView
             android:layout_width="wrap_content"
