@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
+import com.fiit.eatout.eatout.globalValues.global;
 import com.fiit.eatout.eatout.network.ProductEntry;
 
 public class ProductGridFragment extends Fragment {
@@ -53,6 +54,7 @@ public class ProductGridFragment extends Fragment {
         if (activity != null) {
             activity.setSupportActionBar(toolbar);
         }
+        toolbar.setTitle(global.adress);
 
         toolbar.setNavigationOnClickListener(new NavigationIconClickListener(
                 getContext(),

@@ -21,7 +21,7 @@
             android:paddingRight="12dp"
             app:contentInsetStart="0dp"
             app:navigationIcon="@drawable/eout_menu"
-            app:title="@string/eout_app_name" />
+            app:title="@string/eout_top_bar_closest" />
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.NestedScrollView

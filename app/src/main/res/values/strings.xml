@@ -12,12 +12,20 @@
     <string name="eout_error_registration">Ошибка регистрации, соединение прервано</string>
     <string name="eout_filter_title">Фильтр</string>
     <string name="eout_search_title">Поиск</string>
+    <string name="eout_top_bar_closest">Ближайшие рестораны</string>
+    <string name="eout_top_bar_sales">Акции</string>
+    <string name="eout_top_bar_favourites">Избранное</string>
+
+    <string name="eout_top_bar_orders">Заказы</string>
+    <string name="eout_top_bar_preferences">Настройки</string>
+    <string name="eout_top_bar_feedback">Обратная связь</string>
     <string name="eout_product_title">Title</string>
     <string name="eout_product_description">Secondary text</string>
 
     <!-- Backdrop menu labels -->
     <string name="eout_cart_label">Корзина</string>
-    <string name="eout_food_label">Еда</string>
+    <string name="eout_closest_label">Ближайшие рестораны</string>
+    <string name="eout_categories_label">По категориям</string>
     <string name="eout_sales_label">Aкции</string>
     <string name="eout_favourites_label">Избранное</string>
     <string name="eout_orders_label">Заказы</string>

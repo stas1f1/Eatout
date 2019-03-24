@@ -14,7 +14,15 @@
         style="@style/Widget.Eatout.Button.BackdropButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/eout_food_label"
+        android:text="@string/eout_closest_label"
+        android:textAlignment="viewStart"
+        android:gravity="start" />
+
+    <android.support.design.button.MaterialButton
+        style="@style/Widget.Eatout.Button.BackdropButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/eout_categories_label"
         android:textAlignment="viewStart"
         android:gravity="start" />
 

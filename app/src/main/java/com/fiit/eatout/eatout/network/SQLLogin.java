@@ -72,7 +72,7 @@ public class SQLLogin extends Thread
             if (id != null) {
                 global.id = id;
                 global.Name = (json_data.getString("Name"));
-                //global.Surname = (json_data.getString("Surname"));
+                global.Surname = (json_data.getString("Surname"));
                 global.isLogged = true;
                 Log.e("pass i", global.id);
             }
