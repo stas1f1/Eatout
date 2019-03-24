@@ -29,23 +29,25 @@ public class ProductEntry {
     public final String title;
     public final Uri dynamicUrl;
     public final String url;
-    public final String price;
-    public final String description;
+    public final String rating;
+    public final String distance;
+    public final String categories;
 
     public ProductEntry(
-            String title, String dynamicUrl, String url, String price, String description) {
+            String title, String dynamicUrl, String url, String rating, String distance, String categories) {
         this.title = title;
         this.dynamicUrl = Uri.parse(dynamicUrl);
         this.url = url;
-        this.price = price;
-        this.description = description;
+        this.rating = rating;
+        this.distance = distance;
+        this.categories = categories;
     }
 
     /**
      * Loads a raw JSON at R.raw.products and converts it into a list of ProductEntry objects
      */
     public static List<ProductEntry> initProductEntryList(Resources resources) {
-        InputStream inputStream = resources.openRawResource(R.raw.products);
+        InputStream inputStream = resources.openRawResource(R.raw.restaurants);
         Writer writer = new StringWriter();
         char[] buffer = new char[1024];
         try {

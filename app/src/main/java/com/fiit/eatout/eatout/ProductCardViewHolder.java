@@ -11,12 +11,16 @@ public class ProductCardViewHolder extends RecyclerView.ViewHolder {
 
     public NetworkImageView productImage;
     public TextView productTitle;
-    public TextView productPrice;
+    public TextView productRating;
+    public TextView productDistance;
+    public TextView productCategories;
 
     public ProductCardViewHolder(@NonNull View itemView) {
         super(itemView);
         productImage = itemView.findViewById(R.id.product_image);
         productTitle = itemView.findViewById(R.id.product_title);
-        productPrice = itemView.findViewById(R.id.product_price);
+        productRating = itemView.findViewById(R.id.product_rating);
+        productDistance = itemView.findViewById(R.id.product_distance);
+        productCategories = itemView.findViewById(R.id.product_categories);
     }
 }

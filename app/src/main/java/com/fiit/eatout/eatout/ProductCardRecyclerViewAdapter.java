@@ -36,7 +36,9 @@ public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<Product
         if (productList != null && position < productList.size()) {
             ProductEntry product = productList.get(position);
             holder.productTitle.setText(product.title);
-            holder.productPrice.setText(product.price);
+            holder.productRating.setText(product.rating);
+            holder.productDistance.setText(product.distance);
+            holder.productCategories.setText(product.categories);
             imageRequester.setImageFromUrl(holder.productImage, product.url);
         }
     }
