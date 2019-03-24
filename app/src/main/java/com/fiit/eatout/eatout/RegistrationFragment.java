@@ -16,11 +16,12 @@ import android.view.ViewGroup;
 
 import com.fiit.eatout.eatout.globalValues.global;
 import com.fiit.eatout.eatout.network.SQLLogin;
+import com.fiit.eatout.eatout.network.SQLRegistration;
 
 /**
  * Fragment representing the login screen for Shrine.
  */
-public class LoginFragment extends Fragment {
+public class RegistrationFragment extends Fragment {
 
 
 
@@ -28,51 +29,42 @@ public class LoginFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.eout_login_fragment, container, false);
+        View view = inflater.inflate(R.layout.eout_registration_fragment, container, false);
 
-        final TextInputLayout emailTextInput = view.findViewById(R.id.email_text_input);
-        final TextInputEditText emailEditText = view.findViewById(R.id.email_edit_text);
+        final TextInputLayout nameTextInput = view.findViewById(R.id.name_reg_text_input);
+        final TextInputEditText nameEditText = view.findViewById(R.id.name_reg_edit_text);
 
-        final TextInputLayout passwordTextInput = view.findViewById(R.id.password_text_input);
-        final TextInputEditText passwordEditText = view.findViewById(R.id.password_edit_text);
-        MaterialButton nextButton = view.findViewById(R.id.next_button);
-        MaterialButton registerButton = view.findViewById(R.id.register_button);
+        final TextInputLayout surnameTextInput = view.findViewById(R.id.surname_reg_text_input);
+        final TextInputEditText surnameEditText = view.findViewById(R.id.surname_reg_edit_text);
 
+        final TextInputLayout emailTextInput = view.findViewById(R.id.email_reg_text_input);
+        final TextInputEditText emailEditText = view.findViewById(R.id.email_reg_edit_text);
 
-        registerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((NavigationHost) getActivity()).navigateTo(new RegistrationFragment(), true); // Navigate to the next Fragment
-            }
-        });
+        final TextInputLayout passwordTextInput = view.findViewById(R.id.password_reg_text_input);
+        final TextInputEditText passwordEditText = view.findViewById(R.id.password_reg_edit_text);
+        MaterialButton registrationButton = view.findViewById(R.id.registration_button);
+
 
         // Set an error if the password is less than 8 characters.
-        nextButton.setOnClickListener(new View.OnClickListener() {
+        registrationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (!isPasswordValid(passwordEditText.getText()))
                 {
                     passwordTextInput.setError(getString(R.string.eout_error_password));
                 }
-                else if (!isLoginSuccessful(emailEditText.getText(), passwordEditText.getText())) {
-                    emailTextInput.setError(getString(R.string.eout_error_login));
-                    passwordTextInput.setError(getString(R.string.eout_error_login));
+                else if (!isRegistrationSuccessful(nameEditText.getText(), surnameEditText.getText(), emailEditText.getText(), passwordEditText.getText())) {
+                    emailTextInput.setError(getString(R.string.eout_error_registration));
+                    emailTextInput.setError(getString(R.string.eout_error_registration));
+                    emailTextInput.setError(getString(R.string.eout_error_registration));
+                    passwordTextInput.setError(getString(R.string.eout_error_registration));
                 } else {
                     emailTextInput.setError(null); // Clear the error
+                    emailTextInput.setError(null); // Clear the error
+                    emailTextInput.setError(null); // Clear the error
                     passwordTextInput.setError(null); // Clear the error
-                    ((NavigationHost) getActivity()).navigateTo(new ProductGridFragment(), false); // Navigate to the next Fragment
+                    ((NavigationHost) getActivity()).navigateTo(new LoginFragment(), false); // Navigate to the next Fragment
                 }
-            }
-        });
-
-        // Clear the email error once something typed.
-        emailEditText.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                if (isValidEmailAddress(emailEditText.getText())) {
-                    emailTextInput.setError(null); //Clear the error
-                }
-                return false;
             }
         });
 
@@ -94,28 +86,24 @@ public class LoginFragment extends Fragment {
         authentication of the username and password.
      */
 
-    public static boolean isValidEmailAddress(Editable text){
-        return text.length() > 0;
-    }
-
     private boolean isPasswordValid(@Nullable Editable text) {
         return text != null && text.length() >= 8;
     }
 
-    private boolean isLoginSuccessful(Editable email, Editable password) {
-
-        SQLLogin Login;
-        Login = new SQLLogin();
-        Login.start(email.toString(), password.toString());
+    private boolean isRegistrationSuccessful(Editable name, Editable surname, Editable email, Editable password) {
+        global.regSuccess = false;
+        SQLRegistration Reg;
+        Reg = new SQLRegistration();
+        Reg.start(name.toString(),surname.toString(),email.toString(),password.toString());
 
         try {
-            Login.join();
+            Reg.join();
         }
         catch (InterruptedException ie)
         {
             Log.e("pass 0", ie.getMessage());
         }
 
-        return global.id != "-1";
+        return global.regSuccess;
     }
 }

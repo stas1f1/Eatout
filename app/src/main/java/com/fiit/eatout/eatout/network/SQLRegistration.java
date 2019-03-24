@@ -52,12 +52,12 @@ public class SQLRegistration extends Thread
     }
 
     // принемаем id при запуске потока
-    public void start(String regname, String regsurname, String regpassword, String regemail)
+    public void start(String regname, String regsurname, String regemail, String regpassword)
     {
         this.name = regname;
         this.surname = regsurname;
-        this.password = regpassword;
         this.email = regemail;
+        this.password = regpassword;
         this.start();
     }
 

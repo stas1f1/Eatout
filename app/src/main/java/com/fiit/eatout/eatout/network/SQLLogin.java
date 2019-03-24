@@ -84,7 +84,7 @@ public class SQLLogin extends Thread
     }
 
     // принемаем id при запуске потока
-    public void start(String regpassword, String regemail)
+    public void start(String regemail, String regpassword)
     {
         global.id = "-1";
         global.isLogged = false;

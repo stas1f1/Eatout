@@ -1,12 +1,17 @@
 <resources>
     <string name="eout_app_name">eatout</string>
-    <string name="eout_hint_username">Username</string>
-    <string name="eout_hint_password">Password</string>
-    <string name="eout_button_next">Next</string>
-    <string name="eout_button_cancel">Cancel</string>
-    <string name="eout_error_password">Password must contain at least 8 characters.</string>
-    <string name="eout_filter_title">Filter</string>
-    <string name="eout_search_title">Search</string>
+    <string name="eout_hint_name">Имя</string>
+    <string name="eout_hint_surname">Фамилия</string>
+    <string name="eout_hint_email">Электронная почта</string>
+    <string name="eout_hint_password">Пароль</string>
+    <string name="eout_button_next">Далее</string>
+    <string name="eout_button_register">Еще не зарегистрированы?</string>
+    <string name="eout_button_registration">Зарегистрироваться</string>
+    <string name="eout_error_password">Пароль должен быть длиннее 8 символов</string>
+    <string name="eout_error_login">Пользователь с такими данными не найден</string>
+    <string name="eout_error_registration">Ошибка регистрации, соединение прервано</string>
+    <string name="eout_filter_title">Фильтр</string>
+    <string name="eout_search_title">Поиск</string>
     <string name="eout_product_title">Title</string>
     <string name="eout_product_description">Secondary text</string>
 
