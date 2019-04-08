@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
+import com.fiit.eatout.eatout.fragments.LoginFragment;
+
 public class MainActivity extends AppCompatActivity implements NavigationHost {
 
     @Override
@@ -18,6 +20,9 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
                     .add(R.id.container, new LoginFragment())
                     .commit();
         }
+
+
+
     }
 
     /**

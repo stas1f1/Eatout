@@ -17,6 +17,7 @@
     <string name="eout_top_bar_favourites">Избранное</string>
 
     <string name="eout_top_bar_orders">Заказы</string>
+    <string name="eout_top_bar_map">Карта</string>
     <string name="eout_top_bar_preferences">Настройки</string>
     <string name="eout_top_bar_feedback">Обратная связь</string>
     <string name="eout_product_title">Title</string>

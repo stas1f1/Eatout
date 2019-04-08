@@ -1,4 +1,4 @@
-package com.fiit.eatout.eatout;
+package com.fiit.eatout.eatout.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,8 +14,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.fiit.eatout.eatout.NavigationHost;
+import com.fiit.eatout.eatout.R;
 import com.fiit.eatout.eatout.globalValues.global;
-import com.fiit.eatout.eatout.network.SQLLogin;
 import com.fiit.eatout.eatout.network.SQLRegistration;
 
 /**

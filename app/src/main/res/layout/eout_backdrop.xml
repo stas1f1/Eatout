@@ -4,6 +4,7 @@
 
     <android.support.design.button.MaterialButton
         style="@style/Widget.Eatout.Button.BackdropButton"
+        android:id="@+id/backdrop_cart_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/eout_cart_label"
@@ -12,6 +13,7 @@
 
     <android.support.design.button.MaterialButton
         style="@style/Widget.Eatout.Button.BackdropButton"
+        android:id="@+id/backdrop_closest_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/eout_closest_label"
@@ -20,6 +22,7 @@
 
     <android.support.design.button.MaterialButton
         style="@style/Widget.Eatout.Button.BackdropButton"
+        android:id="@+id/backdrop_categories_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/eout_categories_label"
@@ -28,6 +31,7 @@
 
     <android.support.design.button.MaterialButton
         style="@style/Widget.Eatout.Button.BackdropButton"
+        android:id="@+id/backdrop_sales_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/eout_sales_label"
@@ -36,6 +40,7 @@
 
     <android.support.design.button.MaterialButton
         style="@style/Widget.Eatout.Button.BackdropButton"
+        android:id="@+id/backdrop_favourites_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/eout_favourites_label"
@@ -44,6 +49,7 @@
 
     <android.support.design.button.MaterialButton
         style="@style/Widget.Eatout.Button.BackdropButton"
+        android:id="@+id/backdrop_orders_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/eout_orders_label"
@@ -52,6 +58,7 @@
 
     <android.support.design.button.MaterialButton
         style="@style/Widget.Eatout.Button.BackdropButton"
+        android:id="@+id/backdrop_map_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/eout_map_label"
@@ -60,6 +67,7 @@
 
     <android.support.design.button.MaterialButton
         style="@style/Widget.Eatout.Button.BackdropButton"
+        android:id="@+id/backdrop_preferences_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/eout_preferences_label"
@@ -74,8 +82,10 @@
 
     <android.support.design.button.MaterialButton
         style="@style/Widget.Eatout.Button.BackdropButton"
+        android:id="@+id/backdrop_feedback_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/eout_feedback_label" />
+
 
 </merge>

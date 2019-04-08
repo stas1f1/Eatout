@@ -1,0 +1,43 @@
+[
+  {
+    "id": "1",
+    "title": "Биг Мак",
+    "price": "148",
+    "rating": "4.4",
+    "time": "360", //время в секундах
+    "description": "Очень вкусный бигмак",
+    "url": "fl@gmail.com"//здесь потом будет ссылка на изображение
+  },
+  {
+    "id": "1",
+    "title": "McDonalds",
+    "rating": "4.8★",
+    "url": "http://logok.org/wp-content/uploads/2014/06/McDonalds-logo-880x660.png",
+    "distance": "3.2 км",
+    "categories": "Фаст-фуд, Американская, Европейская"
+  },
+  {
+    "id": "2",
+    "title": "Гурман Булкин",
+    "rating": "4.5★",
+    "url": "https://pp.userapi.com/c623125/v623125767/646a3/ubHcf0P76eQ.jpg",
+    "distance": "0.4 км",
+    "categories": "Выпечка, Европейская"
+  },
+  {
+    "id": "3",
+    "title": "Эйнштейн Паб",
+    "rating": "4.4★",
+    "url": "https://static.tildacdn.com/tild3732-6563-4532-b031-626330316466/yazyk-fullsize-01-01.png",
+    "distance": "0.6 км",
+    "categories": "Бар, Европейская"
+  },
+  {
+    "id": "4",
+    "title": "Еда Всегда",
+    "rating": "4.6★",
+    "url": "http://www.emvsegda.ru/images/logo_black.png",
+    "distance": "1.2 км",
+    "categories": "Столовая, Европейская, Азиатская"
+  }
+]

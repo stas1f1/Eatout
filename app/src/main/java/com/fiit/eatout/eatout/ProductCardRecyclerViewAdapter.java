@@ -19,7 +19,7 @@ public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<Product
     private List<ProductEntry> productList;
     private ImageRequester imageRequester;
 
-    ProductCardRecyclerViewAdapter(List<ProductEntry> productList) {
+    public ProductCardRecyclerViewAdapter(List<ProductEntry> productList) {
         this.productList = productList;
         imageRequester = ImageRequester.getInstance();
     }
@@ -35,11 +35,11 @@ public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<Product
     public void onBindViewHolder(@NonNull ProductCardViewHolder holder, int position) {
         if (productList != null && position < productList.size()) {
             ProductEntry product = productList.get(position);
-            holder.productTitle.setText(product.title);
-            holder.productRating.setText(product.rating);
-            holder.productDistance.setText(product.distance);
-            holder.productCategories.setText(product.categories);
-            imageRequester.setImageFromUrl(holder.productImage, product.url);
+            holder.cafeTitle.setText(product.title);
+            holder.cafeRating.setText(product.rating);
+            holder.cafeDistance.setText(product.distance);
+            holder.cafeCategories.setText(product.categories);
+            imageRequester.setImageFromUrl(holder.cafeImage, product.url);
         }
     }
 

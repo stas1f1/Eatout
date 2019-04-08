@@ -1,10 +1,12 @@
-package com.fiit.eatout.eatout;
+package com.fiit.eatout.eatout.fragments;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -15,10 +17,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
+
+import com.fiit.eatout.eatout.NavigationIconClickListener;
+import com.fiit.eatout.eatout.R;
 import com.fiit.eatout.eatout.globalValues.global;
 import com.fiit.eatout.eatout.network.ProductEntry;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-public class ProductGridFragment extends Fragment {
+/**
+ * Created by C on 03.04.2019.
+ */
+
+public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,21 +45,14 @@ public class ProductGridFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment with the ProductGrid theme
-        View view = inflater.inflate(R.layout.eout_product_grid_fragment, container, false);
+        View view = inflater.inflate(R.layout.eout_maps, container, false);
 
         // Set up the tool bar
         setUpToolbar(view);
-
-        // Set up the RecyclerView
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        ProductCardRecyclerViewAdapter adapter = new ProductCardRecyclerViewAdapter(
-                ProductEntry.initProductEntryList(getResources()));
-        recyclerView.setAdapter(adapter);
-        int largePadding = getResources().getDimensionPixelSize(R.dimen.eout_product_grid_spacing);
-        int smallPadding = getResources().getDimensionPixelSize(R.dimen.eout_product_grid_spacing_small);
-        recyclerView.addItemDecoration(new ProductGridItemDecoration(largePadding, smallPadding));
+        // Get the SupportMapFragment and request notification
+        // when the map is ready to be used.
+        SupportMapFragment mapFragment = (SupportMapFragment) getFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
 
         return view;
     }
@@ -55,12 +63,12 @@ public class ProductGridFragment extends Fragment {
         if (activity != null) {
             activity.setSupportActionBar(toolbar);
         }
-        toolbar.setTitle(global.adress);
+        toolbar.setTitle("@strings/eout_top_bar_map");
 
         toolbar.setNavigationOnClickListener(new NavigationIconClickListener(
                 getContext(),
                 view.findViewById(R.id.app_bar),
-                view.findViewById(R.id.product_grid),
+                view.findViewById(R.id.map),
                 new AccelerateDecelerateInterpolator()));
     }
 
@@ -68,6 +76,16 @@ public class ProductGridFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
         menuInflater.inflate(R.menu.eout_toolbar_menu, menu);
         super.onCreateOptionsMenu(menu, menuInflater);
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        // Add a marker in Sydney, Australia,
+        // and move the map's camera to the same location.
+        LatLng sydney = new LatLng(-33.852, 151.211);
+        googleMap.addMarker(new MarkerOptions().position(sydney)
+                .title("Marker in Sydney"));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 
 }
