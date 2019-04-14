@@ -1,14 +1,9 @@
 package com.fiit.eatout.eatout.fragments;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -20,8 +15,6 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 
 import com.fiit.eatout.eatout.NavigationIconClickListener;
 import com.fiit.eatout.eatout.R;
-import com.fiit.eatout.eatout.globalValues.global;
-import com.fiit.eatout.eatout.network.ProductEntry;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;

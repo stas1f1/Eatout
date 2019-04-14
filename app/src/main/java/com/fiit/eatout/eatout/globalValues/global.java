@@ -2,7 +2,9 @@ package com.fiit.eatout.eatout.globalValues;
 
 public class global {
     public static Boolean isLogged  = false;
-    public static String id = "-1";
+    public static String userID = "-1";
+    public static String orderCafeid = "0";
+    public static String currentCafeid = "0";
     public static String adress = "Мильчакова, 8а";
     public static String Name;
     public static String Surname;

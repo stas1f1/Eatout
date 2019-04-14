@@ -21,36 +21,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A product entry in the list of products
+ * A cafe entry in the list of cafes.
  */
-public class ProductEntry {
-    private static final String TAG = ProductEntry.class.getSimpleName();
+public class CafeEntry {
+    private static final String TAG = CafeEntry.class.getSimpleName();
 
     public final String title;
     public final Uri dynamicUrl;
-    public final String ID;
     public final String url;
-    public final String weight;
-    public final String time;
-    public final String price;
-    public final String description;
+    public final String rating;
+    public final String distance;
+    public final String categories;
 
-    public ProductEntry(
-            String title, String ID, String dynamicUrl, String url, String weight, String time, String price, String description) {
+    public CafeEntry(
+            String title, String dynamicUrl, String url, String rating, String distance, String categories) {
         this.title = title;
-        this.ID = ID;
         this.dynamicUrl = Uri.parse(dynamicUrl);
         this.url = url;
-        this.weight = weight;
-        this.time = time;
-        this.price = price;
-        this.description = description;
+        this.rating = rating;
+        this.distance = distance;
+        this.categories = categories;
     }
 
     /**
      * Loads a raw JSON at R.raw.products and converts it into a list of CafeEntry objects
      */
-    public static List<ProductEntry> initProductEntryList(Resources resources) {
+    public static List<CafeEntry> initCafeEntryList(Resources resources) {
         InputStream inputStream = resources.openRawResource(R.raw.restaurants);
         Writer writer = new StringWriter();
         char[] buffer = new char[1024];
@@ -69,10 +65,10 @@ public class ProductEntry {
                 Log.e(TAG, "Error closing the input stream.", exception);
             }
         }
-        String jsonProductString = writer.toString();
+        String jsonCafeString = writer.toString();
         Gson gson = new Gson();
-        Type productListType = new TypeToken<ArrayList<ProductEntry>>() {
+        Type cafeListType = new TypeToken<ArrayList<CafeEntry>>() {
         }.getType();
-        return gson.fromJson(jsonProductString, productListType);
+        return gson.fromJson(jsonCafeString, cafeListType);
     }
 }

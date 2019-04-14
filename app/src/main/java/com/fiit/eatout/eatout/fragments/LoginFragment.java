@@ -52,6 +52,12 @@ public class LoginFragment extends Fragment {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //test mode - omitting login
+
+                ((NavigationHost) getActivity()).navigateTo(new CafeGridFragment(), false); // Navigate to the next Fragment
+
+                //release mode - fully functional login
+                /*
                 if (!isPasswordValid(passwordEditText.getText()))
                 {
                     passwordTextInput.setError(getString(R.string.eout_error_password));
@@ -62,8 +68,9 @@ public class LoginFragment extends Fragment {
                 } else {
                     emailTextInput.setError(null); // Clear the error
                     passwordTextInput.setError(null); // Clear the error
-                    ((NavigationHost) getActivity()).navigateTo(new ProductGridFragment(), false); // Navigate to the next Fragment
+                    ((NavigationHost) getActivity()).navigateTo(new CafeGridFragment(), false); // Navigate to the next Fragment
                 }
+                */
             }
         });
 
@@ -118,6 +125,6 @@ public class LoginFragment extends Fragment {
             Log.e("pass 0", ie.getMessage());
         }
 
-        return global.id != "-1";
+        return global.userID != "-1";
     }
 }

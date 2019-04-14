@@ -9,19 +9,22 @@ import com.android.volley.toolbox.NetworkImageView;
 
 public class ProductCardViewHolder extends RecyclerView.ViewHolder {
 
-    public NetworkImageView cafeImage;
-    public TextView cafeTitle;
-    public TextView cafeRating;
-    public TextView cafeDistance;
-    public TextView cafeCategories;
+    public NetworkImageView productImage;
+    public TextView productTitle;
+    public String productID;
+    public TextView productWeight;
+    public TextView productTime;
+    public TextView productPrice;
+    public TextView productDescription;
 
     public ProductCardViewHolder(@NonNull View itemView) {
         super(itemView);
-        cafeImage = itemView.findViewById(R.id.product_image);
-        cafeTitle = itemView.findViewById(R.id.product_title);
-        cafeRating = itemView.findViewById(R.id.product_rating);
-        cafeDistance = itemView.findViewById(R.id.product_distance);
-        cafeCategories = itemView.findViewById(R.id.product_categories);
+        productImage = itemView.findViewById(R.id.product_image);
+        productTitle = itemView.findViewById(R.id.product_title);
+        productWeight = itemView.findViewById(R.id.product_weight);
+        productTime = itemView.findViewById(R.id.product_time);
+        productPrice = itemView.findViewById(R.id.product_price);
+        productDescription = itemView.findViewById(R.id.product_description);
     }
 
 

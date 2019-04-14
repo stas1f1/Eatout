@@ -54,13 +54,13 @@ public class CafeFragment extends Fragment {
         closestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((NavigationHost) getActivity()).navigateTo(new ProductGridFragment(), true); // Navigate to the next Fragment
+                ((NavigationHost) getActivity()).navigateTo(new CafeGridFragment(), true); // Navigate to the next Fragment
             }
         });
         categoriesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((NavigationHost) getActivity()).navigateTo(new CartFragment(), true); // Navigate to the next Fragment
+                ((NavigationHost) getActivity()).navigateTo(new CategoriesFragment(), true); // Navigate to the next Fragment
             }
         });
         salesButton.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +99,6 @@ public class CafeFragment extends Fragment {
                 ((NavigationHost) getActivity()).navigateTo(new FeedbackFragment(), true); // Navigate to the next Fragment
             }
         });
-
 
         return view;
     }

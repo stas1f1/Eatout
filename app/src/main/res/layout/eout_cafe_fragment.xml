@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ProductGridFragment">
+    tools:context=".fragments.CafeGridFragment">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -39,7 +39,7 @@
             android:clipChildren="false"
             android:clipToPadding="false"
             android:orientation="vertical"
-            android:backgroundTint="@color/colorPrimaryDark"
+            android:background="@color/colorPrimaryDark"
             android:padding="24dp"
             android:paddingTop="16dp">
 
@@ -50,17 +50,27 @@
                 android:layout_marginBottom="20dp"
                 android:layout_marginTop="20dp"
                 android:text="@string/eout_app_name"
-                android:textAppearance="@style/TextAppearance.AppCompat"
+                android:textAppearance="@style/TextAppearance.Eatout.CafeTitle"
                 android:textSize="12sp" />
 
-            <com.android.volley.toolbox.NetworkImageView
-                android:id="@+id/cafe_image"
-                android:layout_width="@dimen/eout_cafe_image_width"
-                android:layout_height="@dimen/eout_cafe_image_height"
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:adjustViewBounds="false"
-                android:background="?attr/colorPrimaryDark"
-                android:scaleType="centerCrop" />
+                app:cardCornerRadius="8dp"
+                android:layout_margin="5dp"
+                android:elevation="10dp">
+
+                <com.android.volley.toolbox.NetworkImageView
+                    android:id="@+id/cafe_image"
+                    android:layout_width="@dimen/eout_cafe_image_width"
+                    android:layout_height="@dimen/eout_cafe_image_height"
+                    android:adjustViewBounds="false"
+                    android:background="?attr/colorPrimaryDark"
+                    android:scaleType="centerCrop" />
+            </android.support.v7.widget.CardView>
+
+
 
 
         </LinearLayout>

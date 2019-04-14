@@ -70,11 +70,11 @@ public class SQLLogin extends Thread
             JSONObject json_data = new JSONObject(result);
             id = (json_data.getString("ID"));
             if (id != null) {
-                global.id = id;
+                global.userID = id;
                 global.Name = (json_data.getString("Name"));
                 global.Surname = (json_data.getString("Surname"));
                 global.isLogged = true;
-                Log.e("pass i", global.id);
+                Log.e("pass i", global.userID);
             }
         }
         catch(Exception e)
@@ -83,10 +83,10 @@ public class SQLLogin extends Thread
         }
     }
 
-    // принемаем id при запуске потока
+    // принемаем userID при запуске потока
     public void start(String regemail, String regpassword)
     {
-        global.id = "-1";
+        global.userID = "-1";
         global.isLogged = false;
         this.password = regpassword;
         this.email = regemail;

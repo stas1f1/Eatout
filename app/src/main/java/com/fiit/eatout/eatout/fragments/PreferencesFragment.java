@@ -20,6 +20,7 @@ import com.fiit.eatout.eatout.globalValues.global;
 
 public class PreferencesFragment extends Fragment {
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +31,7 @@ public class PreferencesFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment with the ProductGrid theme
-        View view = inflater.inflate(R.layout.eout_product_grid_fragment, container, false);
+        View view = inflater.inflate(R.layout.eout_tmp_fragment, container, false);
 
         // Set up the tool bar
         setUpToolbar(view);
@@ -54,13 +55,13 @@ public class PreferencesFragment extends Fragment {
         closestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((NavigationHost) getActivity()).navigateTo(new ProductGridFragment(), true); // Navigate to the next Fragment
+                ((NavigationHost) getActivity()).navigateTo(new CafeGridFragment(), true); // Navigate to the next Fragment
             }
         });
         categoriesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((NavigationHost) getActivity()).navigateTo(new PreferencesFragment(), true); // Navigate to the next Fragment
+                ((NavigationHost) getActivity()).navigateTo(new CategoriesFragment(), true); // Navigate to the next Fragment
             }
         });
         salesButton.setOnClickListener(new View.OnClickListener() {

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.fiit.eatout.eatout.network.CafeEntry;
 import com.fiit.eatout.eatout.network.ImageRequester;
 import com.fiit.eatout.eatout.network.ProductEntry;
 
@@ -35,11 +36,12 @@ public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<Product
     public void onBindViewHolder(@NonNull ProductCardViewHolder holder, int position) {
         if (productList != null && position < productList.size()) {
             ProductEntry product = productList.get(position);
-            holder.cafeTitle.setText(product.title);
-            holder.cafeRating.setText(product.rating);
-            holder.cafeDistance.setText(product.distance);
-            holder.cafeCategories.setText(product.categories);
-            imageRequester.setImageFromUrl(holder.cafeImage, product.url);
+            holder.productTitle.setText(product.title);
+            holder.productWeight.setText(product.weight);
+            holder.productTime.setText(product.time);
+            holder.productPrice.setText(product.price);
+            holder.productDescription.setText(product.description);
+            imageRequester.setImageFromUrl(holder.productImage, product.url);
         }
     }
 

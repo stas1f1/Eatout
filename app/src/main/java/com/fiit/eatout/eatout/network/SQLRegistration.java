@@ -36,7 +36,7 @@ public class SQLRegistration extends Thread
         nameValuePairs.add(new BasicNameValuePair("Surname", surname));
         nameValuePairs.add(new BasicNameValuePair("Password", password));
         nameValuePairs.add(new BasicNameValuePair("Email", email));
-        //  подключаемся к php запросу и отправляем в него id
+        //  подключаемся к php запросу и отправляем в него userID
         try {
             HttpClient httpclient = new DefaultHttpClient();
             HttpPost httppost = new HttpPost("http://test.rightdown.info/db_registration.php");
@@ -51,7 +51,7 @@ public class SQLRegistration extends Thread
         }
     }
 
-    // принемаем id при запуске потока
+    // принемаем userID при запуске потока
     public void start(String regname, String regsurname, String regemail, String regpassword)
     {
         this.name = regname;
