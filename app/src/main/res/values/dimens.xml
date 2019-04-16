@@ -4,7 +4,7 @@
     <dimen name="eout_product_grid_spacing_small">4dp</dimen>
     <dimen name="eout_product_card_image_height">108dp</dimen>
     <dimen name="eout_product_card_image_width">162dp</dimen>
-    <dimen name="eout_cafe_image_height">108dp</dimen>
+    <dimen name="eout_cafe_image_height">140dp</dimen>
     <dimen name="eout_cafe_image_width">162dp</dimen>
     <dimen name="eout_product_grid_reveal_width">60dp</dimen>
 

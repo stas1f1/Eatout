@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.util.Log;
 
 import com.fiit.eatout.eatout.R;
+import com.fiit.eatout.eatout.globalValues.global;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -37,39 +38,41 @@ public class ProductEntry {
 
     public ProductEntry(
             String title, String ID, String dynamicUrl, String url, String weight, String time, String price, String description) {
-        this.title = title;
         this.ID = ID;
+        this.title = title;
         this.dynamicUrl = Uri.parse(dynamicUrl);
         this.url = url;
-        this.weight = weight;
-        this.time = time;
-        this.price = price;
+        this.weight = weight + "г";
+        this.time = ConvertTime(time);
+        this.price = price + "р.";
         this.description = description;
+    }
+
+    private String ConvertTime(String secs)
+    {
+        double mins = Double.parseDouble(secs) / 60;
+        return String.valueOf(mins) + " минут";
     }
 
     /**
      * Loads a raw JSON at R.raw.products and converts it into a list of CafeEntry objects
      */
     public static List<ProductEntry> initProductEntryList(Resources resources) {
-        InputStream inputStream = resources.openRawResource(R.raw.restaurants);
-        Writer writer = new StringWriter();
-        char[] buffer = new char[1024];
+
+        SQLGetProducts GetProducts;
+        GetProducts = new SQLGetProducts();
+        GetProducts.start(global.currentCafeid);
+
         try {
-            Reader reader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
-            int pointer;
-            while ((pointer = reader.read(buffer)) != -1) {
-                writer.write(buffer, 0, pointer);
-            }
-        } catch (IOException exception) {
-            Log.e(TAG, "Error writing/reading from the JSON file.", exception);
-        } finally {
-            try {
-                inputStream.close();
-            } catch (IOException exception) {
-                Log.e(TAG, "Error closing the input stream.", exception);
-            }
+            GetProducts.join();
         }
-        String jsonProductString = writer.toString();
+        catch (InterruptedException ie)
+        {
+            Log.e("products loading error", ie.getMessage());
+        }
+
+        String jsonProductString;
+        jsonProductString = GetProducts.result;
         Gson gson = new Gson();
         Type productListType = new TypeToken<ArrayList<ProductEntry>>() {
         }.getType();

@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -42,10 +43,10 @@ public class CafeGridFragment extends Fragment {
         setUpToolbar(view);
 
         // Set up the RecyclerView
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
+        RecyclerView recyclerView = view.findViewById(R.id.cafe_recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        CafeCardRecyclerViewAdapter adapter = new CafeCardRecyclerViewAdapter(
+        final CafeCardRecyclerViewAdapter adapter = new CafeCardRecyclerViewAdapter(
                 CafeEntry.initCafeEntryList(getResources()));
         recyclerView.setAdapter(adapter);
         int largePadding = getResources().getDimensionPixelSize(R.dimen.eout_product_grid_spacing);
@@ -55,6 +56,8 @@ public class CafeGridFragment extends Fragment {
         recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(getActivity(), recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
+                        adapter.getDataByPosition(position);
+                        Log.e("position", global.currentCafeid);
                         ((NavigationHost) getActivity()).navigateTo(new CafeFragment(), true); // Navigate to the next Fragment
                     }
                 })

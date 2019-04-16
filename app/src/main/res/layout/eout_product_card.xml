@@ -87,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="start"
-                    android:text="@string/eout_product_time"
+                    android:text="@string/eout_product_title"
                     android:textAppearance="?attr/textAppearanceBody2" />
 
             </LinearLayout>

@@ -34,6 +34,11 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="vertical">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipChildren="false"
@@ -44,6 +49,7 @@
             android:paddingTop="16dp">
 
             <TextView
+                android:id="@+id/cafe_menu_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -62,7 +68,7 @@
                 android:elevation="10dp">
 
                 <com.android.volley.toolbox.NetworkImageView
-                    android:id="@+id/cafe_image"
+                    android:id="@+id/cafe_logo"
                     android:layout_width="@dimen/eout_cafe_image_width"
                     android:layout_height="@dimen/eout_cafe_image_height"
                     android:adjustViewBounds="false"
@@ -73,6 +79,12 @@
 
 
 
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/product_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>

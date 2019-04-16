@@ -1,7 +1,9 @@
 package com.fiit.eatout.eatout;
 
+import android.nfc.Tag;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,11 +38,15 @@ public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<Product
     public void onBindViewHolder(@NonNull ProductCardViewHolder holder, int position) {
         if (productList != null && position < productList.size()) {
             ProductEntry product = productList.get(position);
+            String weight = product.weight + "г";
+            String price = product.price + "\u20BD";
+            String time = String.valueOf(Double.parseDouble(product.time) / 60) + " минут";
             holder.productTitle.setText(product.title);
-            holder.productWeight.setText(product.weight);
-            holder.productTime.setText(product.time);
-            holder.productPrice.setText(product.price);
+            holder.productWeight.setText(weight);
+            holder.productTime.setText(time);
+            holder.productPrice.setText(price);
             holder.productDescription.setText(product.description);
+            Log.e("URL:",product.url);
             imageRequester.setImageFromUrl(holder.productImage, product.url);
         }
     }

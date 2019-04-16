@@ -5,6 +5,8 @@ import android.support.annotation.NonNull;
 import android.support.design.button.MaterialButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -12,11 +14,18 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.TextView;
 
+import com.android.volley.toolbox.NetworkImageView;
 import com.fiit.eatout.eatout.NavigationHost;
 import com.fiit.eatout.eatout.NavigationIconClickListener;
+import com.fiit.eatout.eatout.ProductCardRecyclerViewAdapter;
 import com.fiit.eatout.eatout.R;
+import com.fiit.eatout.eatout.RecyclerItemClickListener;
 import com.fiit.eatout.eatout.globalValues.global;
+import com.fiit.eatout.eatout.network.CafeEntry;
+import com.fiit.eatout.eatout.network.ImageRequester;
+import com.fiit.eatout.eatout.network.ProductEntry;
 
 public class CafeFragment extends Fragment {
 
@@ -34,6 +43,36 @@ public class CafeFragment extends Fragment {
 
         // Set up the tool bar
         setUpToolbar(view);
+
+        TextView TitleText = view.findViewById(R.id.cafe_menu_title);
+        TitleText.setText(global.currentCafeTitle);
+
+        ImageRequester imageRequester;
+        imageRequester = ImageRequester.getInstance();
+        imageRequester.setImageFromUrl((NetworkImageView)view.findViewById(R.id.cafe_logo), global.currentCafeURL);
+
+        // Set up the RecyclerView
+        RecyclerView recyclerView = view.findViewById(R.id.product_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        ProductCardRecyclerViewAdapter adapter = new ProductCardRecyclerViewAdapter(
+                ProductEntry.initProductEntryList(getResources()));
+        recyclerView.setAdapter(adapter);
+        /*
+        int largePadding = getResources().getDimensionPixelSize(R.dimen.eout_product_grid_spacing);
+        int smallPadding = getResources().getDimensionPixelSize(R.dimen.eout_product_grid_spacing_small);
+        recyclerView.addItemDecoration(new CafeGridItemDecoration(largePadding, smallPadding));
+        */
+        recyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(getActivity(), recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                      //Add product
+                        /*
+                        ((NavigationHost) getActivity()).navigateTo(new CafeFragment(), true); // Navigate to the next Fragment
+                        */
+                    }
+                })
+        );
 
         MaterialButton cartButton = view.findViewById(R.id.backdrop_cart_button);
         MaterialButton closestButton = view.findViewById(R.id.backdrop_closest_button);

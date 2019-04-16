@@ -26,6 +26,7 @@ import java.util.List;
 public class CafeEntry {
     private static final String TAG = CafeEntry.class.getSimpleName();
 
+    public final String id;
     public final String title;
     public final Uri dynamicUrl;
     public final String url;
@@ -34,7 +35,8 @@ public class CafeEntry {
     public final String categories;
 
     public CafeEntry(
-            String title, String dynamicUrl, String url, String rating, String distance, String categories) {
+            String id, String title, String dynamicUrl, String url, String rating, String distance, String categories) {
+        this.id = id;
         this.title = title;
         this.dynamicUrl = Uri.parse(dynamicUrl);
         this.url = url;
