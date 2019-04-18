@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 
 
+import com.fiit.eatout.eatout.BackdropSetup;
 import com.fiit.eatout.eatout.NavigationIconClickListener;
 import com.fiit.eatout.eatout.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -42,6 +43,10 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
         // Set up the tool bar
         setUpToolbar(view);
+
+        // Set up the backdrop menu
+        BackdropSetup.setup(view, getActivity());
+
         // Get the SupportMapFragment and request notification
         // when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getFragmentManager().findFragmentById(R.id.map);
@@ -56,7 +61,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         if (activity != null) {
             activity.setSupportActionBar(toolbar);
         }
-        toolbar.setTitle("@strings/eout_top_bar_map");
+        toolbar.setTitle("Карта");
 
         toolbar.setNavigationOnClickListener(new NavigationIconClickListener(
                 getContext(),

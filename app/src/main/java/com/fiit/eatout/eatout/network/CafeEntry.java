@@ -26,13 +26,13 @@ import java.util.List;
 public class CafeEntry {
     private static final String TAG = CafeEntry.class.getSimpleName();
 
-    public final String id;
-    public final String title;
-    public final Uri dynamicUrl;
-    public final String url;
-    public final String rating;
-    public final String distance;
-    public final String categories;
+    public String id;
+    public String title;
+    public Uri dynamicUrl;
+    public String url;
+    public String rating;
+    public String distance;
+    public String categories;
 
     public CafeEntry(
             String id, String title, String dynamicUrl, String url, String rating, String distance, String categories) {
@@ -44,6 +44,17 @@ public class CafeEntry {
         this.distance = distance;
         this.categories = categories;
     }
+
+    public void copy(CafeEntry cafe){
+        this.id = cafe.id;
+        this.title = cafe.title;
+        this.dynamicUrl = cafe.dynamicUrl;
+        this.url = cafe.url;
+        this.rating = cafe.rating;
+        this.distance = cafe.distance;
+        this.categories = cafe.categories;
+    }
+
 
     /**
      * Loads a raw JSON at R.raw.products and converts it into a list of CafeEntry objects

@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.fiit.eatout.eatout.globalValues.global;
 import com.fiit.eatout.eatout.network.CafeEntry;
 import com.fiit.eatout.eatout.network.ImageRequester;
 
@@ -50,12 +49,9 @@ public class CafeCardRecyclerViewAdapter extends RecyclerView.Adapter<CafeCardVi
         return cafeList.size();
     }
 
-    public void getDataByPosition(int position)
+    public CafeEntry getCafeByPosition(int position)
     {
-        CafeEntry cutrrentCafe = cafeList.get(position);
-        global.currentCafeid = cutrrentCafe.id;
-        global.currentCafeURL = cutrrentCafe.url;
-        global.currentCafeTitle = cutrrentCafe.title;
+        return cafeList.get(position);
     }
 
 }

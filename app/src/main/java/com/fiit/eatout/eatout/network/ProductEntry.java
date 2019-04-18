@@ -5,18 +5,10 @@ import android.content.res.Resources;
 import android.net.Uri;
 import android.util.Log;
 
-import com.fiit.eatout.eatout.R;
 import com.fiit.eatout.eatout.globalValues.global;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.StringWriter;
-import java.io.Writer;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +53,7 @@ public class ProductEntry {
 
         SQLGetProducts GetProducts;
         GetProducts = new SQLGetProducts();
-        GetProducts.start(global.currentCafeid);
+        GetProducts.start(global.currentCafe.id);
 
         try {
             GetProducts.join();

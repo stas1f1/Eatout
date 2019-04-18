@@ -13,9 +13,11 @@
     <string name="eout_filter_title">Фильтр</string>
     <string name="eout_search_title">Поиск</string>
     <string name="eout_top_bar_closest">Ближайшие рестораны</string>
+    <string name="eout_top_bar_menu">Меню</string>
     <string name="eout_top_bar_sales">Акции</string>
+    <string name="eout_top_bar_cart">Корзина</string>
     <string name="eout_top_bar_favourites">Избранное</string>
-
+    <string name="eout_top_bar_categories">По категориям</string>
     <string name="eout_top_bar_orders">Заказы</string>
     <string name="eout_top_bar_map">Карта</string>
     <string name="eout_top_bar_preferences">Настройки</string>

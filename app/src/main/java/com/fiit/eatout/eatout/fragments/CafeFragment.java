@@ -1,13 +1,20 @@
 package com.fiit.eatout.eatout.fragments;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.button.MaterialButton;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,13 +24,14 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.NetworkImageView;
+import com.fiit.eatout.eatout.BackdropSetup;
 import com.fiit.eatout.eatout.NavigationHost;
 import com.fiit.eatout.eatout.NavigationIconClickListener;
 import com.fiit.eatout.eatout.ProductCardRecyclerViewAdapter;
 import com.fiit.eatout.eatout.R;
 import com.fiit.eatout.eatout.RecyclerItemClickListener;
+import com.fiit.eatout.eatout.globalValues.Cart;
 import com.fiit.eatout.eatout.globalValues.global;
-import com.fiit.eatout.eatout.network.CafeEntry;
 import com.fiit.eatout.eatout.network.ImageRequester;
 import com.fiit.eatout.eatout.network.ProductEntry;
 
@@ -44,18 +52,30 @@ public class CafeFragment extends Fragment {
         // Set up the tool bar
         setUpToolbar(view);
 
+        // Set up the backdrop menu
+        BackdropSetup.setup(view, getActivity());
+
         TextView TitleText = view.findViewById(R.id.cafe_menu_title);
-        TitleText.setText(global.currentCafeTitle);
+        TitleText.setText(global.currentCafe.title);
 
         ImageRequester imageRequester;
         imageRequester = ImageRequester.getInstance();
-        imageRequester.setImageFromUrl((NetworkImageView)view.findViewById(R.id.cafe_logo), global.currentCafeURL);
+        imageRequester.setImageFromUrl((NetworkImageView)view.findViewById(R.id.cafe_logo), global.currentCafe.url);
+
+        final FloatingActionButton CartButton = view.findViewById(R.id.floating_action_button);
+        CartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((NavigationHost) getActivity()).navigateTo(new CartFragment(), true); // Navigate to the next Fragment
+            }
+        });
+        if (Cart.isEmpty())CartButton.hide();
 
         // Set up the RecyclerView
         RecyclerView recyclerView = view.findViewById(R.id.product_recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        ProductCardRecyclerViewAdapter adapter = new ProductCardRecyclerViewAdapter(
+        final ProductCardRecyclerViewAdapter adapter = new ProductCardRecyclerViewAdapter(
                 ProductEntry.initProductEntryList(getResources()));
         recyclerView.setAdapter(adapter);
         /*
@@ -65,81 +85,53 @@ public class CafeFragment extends Fragment {
         */
         recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(getActivity(), recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
-                    @Override public void onItemClick(View view, int position) {
-                      //Add product
-                        /*
-                        ((NavigationHost) getActivity()).navigateTo(new CafeFragment(), true); // Navigate to the next Fragment
-                        */
+                    @Override public void onItemClick(View view, final int position) {
+                      if (global.orderCafe == null)
+                          global.orderCafe = global.currentCafe ;
+                      Log.e("position", global.orderCafe.id);
+                      if (global.orderCafe.id != global.currentCafe.id)
+                          {
+                              AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                              builder.setTitle("Очистить корзину?")
+                                      .setMessage("При добавлении блюда из другого кафе корзина очистится")
+                                      .setCancelable(false)
+                                      .setNegativeButton("Отмена", new DialogInterface.OnClickListener() {
+                                          public void onClick(DialogInterface dialog, int id) {
+                                              dialog.cancel();
+                                          }
+                                      })
+                                      .setPositiveButton("Добавить", new DialogInterface.OnClickListener() {
+                                          public void onClick(DialogInterface dialog, int id) {
+                                              Cart.clear();
+                                              global.orderCafe.copy(global.currentCafe);
+                                              Cart.addEntry(adapter.getProductByPosition(position));
+                                              ShowButton(CartButton);
+                                              dialog.cancel();
+                                          }
+                                      });
+                          }
+                      else
+                      {
+                          Cart.addEntry(adapter.getProductByPosition(position));
+                          ShowButton(CartButton);
+                      }
                     }
                 })
         );
 
-        MaterialButton cartButton = view.findViewById(R.id.backdrop_cart_button);
-        MaterialButton closestButton = view.findViewById(R.id.backdrop_closest_button);
-        MaterialButton categoriesButton = view.findViewById(R.id.backdrop_categories_button);
-        MaterialButton salesButton = view.findViewById(R.id.backdrop_sales_button);
-        MaterialButton favouritesButton = view.findViewById(R.id.backdrop_favourites_button);
-        MaterialButton ordersButton = view.findViewById(R.id.backdrop_orders_button);
-        MaterialButton mapButton = view.findViewById(R.id.backdrop_map_button);
-        MaterialButton preferencesButton = view.findViewById(R.id.backdrop_preferences_button);
-        MaterialButton feedbackButton = view.findViewById(R.id.backdrop_feedback_button);
-
-        cartButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((NavigationHost) getActivity()).navigateTo(new CartFragment(), true); // Navigate to the next Fragment
-            }
-        });
-        closestButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((NavigationHost) getActivity()).navigateTo(new CafeGridFragment(), true); // Navigate to the next Fragment
-            }
-        });
-        categoriesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((NavigationHost) getActivity()).navigateTo(new CategoriesFragment(), true); // Navigate to the next Fragment
-            }
-        });
-        salesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((NavigationHost) getActivity()).navigateTo(new SalesFragment(), true); // Navigate to the next Fragment
-            }
-        });
-        favouritesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((NavigationHost) getActivity()).navigateTo(new FavouritesFragment(), true); // Navigate to the next Fragment
-            }
-        });
-        ordersButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((NavigationHost) getActivity()).navigateTo(new OrdersFragment(), true); // Navigate to the next Fragment
-            }
-        });
-        mapButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((NavigationHost) getActivity()).navigateTo(new MapFragment(), true); // Navigate to the next Fragment
-            }
-        });
-        preferencesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((NavigationHost) getActivity()).navigateTo(new PreferencesFragment(), true); // Navigate to the next Fragment
-            }
-        });
-        feedbackButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((NavigationHost) getActivity()).navigateTo(new FeedbackFragment(), true); // Navigate to the next Fragment
-            }
-        });
-
         return view;
+    }
+
+    private void ShowButton(FloatingActionButton CartButton)
+    {
+        if (CartButton.isOrWillBeHidden())
+        {
+            CartButton.show();
+            ValueAnimator fadeAnim = ObjectAnimator.ofFloat(CartButton, "alpha", 0f, 1f);
+            fadeAnim.setDuration(250);
+            fadeAnim.setInterpolator(new AccelerateDecelerateInterpolator());
+            fadeAnim.start();
+        }
     }
 
     private void setUpToolbar(View view) {
@@ -148,7 +140,7 @@ public class CafeFragment extends Fragment {
         if (activity != null) {
             activity.setSupportActionBar(toolbar);
         }
-        toolbar.setTitle(global.adress);
+        toolbar.setTitle("Ближайшие рестораны");
 
         toolbar.setNavigationOnClickListener(new NavigationIconClickListener(
                 getContext(),
