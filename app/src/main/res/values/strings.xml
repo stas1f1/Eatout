@@ -7,6 +7,7 @@
     <string name="eout_button_next">Далее</string>
     <string name="eout_button_register">Еще не зарегистрированы?</string>
     <string name="eout_button_registration">Зарегистрироваться</string>
+    <string name="eout_button_order">Заказать</string>
     <string name="eout_error_password">Пароль должен быть длиннее 8 символов</string>
     <string name="eout_error_login">Пользователь с такими данными не найден</string>
     <string name="eout_error_registration">Ошибка регистрации, соединение прервано</string>
@@ -26,6 +27,7 @@
     <string name="eout_product_time_beg">Время приготовления:</string>
     <string name="eout_product_time">Время</string>
     <string name="eout_product_description">Secondary text</string>
+    <string name="eout_cart_total">Итого:</string>
 
     <!-- Backdrop menu labels -->
     <string name="eout_cart_label">Корзина</string>

@@ -1,35 +1,35 @@
 [
   {
     "id": "1",
-    "title": "McDonalds",
+    "title": "Столовая Мехмата ЮФУ",
     "rating": "4.8★",
-    "url": "http://logok.org/wp-content/uploads/2014/06/McDonalds-logo-880x660.png",
-    "distance": "3.2 км",
-    "categories": "Фаст-фуд, Американская, Европейская"
+    "url": "https://pp.userapi.com/w2lJl6gSNS0_ptYSykh9D4-jVTdXuS6xUDg5KA/JYVPz9Ngl08.jpg",
+    "distance": "0.1 км",
+    "categories": "Столовая, Русская, Европейская"
   },
   {
     "id": "2",
-    "title": "Гурман Булкин",
+    "title": "Штефан бургер",
     "rating": "4.5★",
-    "url": "https://pp.userapi.com/c623125/v623125767/646a3/ubHcf0P76eQ.jpg",
-    "distance": "0.4 км",
-    "categories": "Выпечка, Европейская"
+    "url": "http://srostova.ru/uploads/posts/2016-07/1469119040_shtefan.jpg",
+    "distance": "7.4 км",
+    "categories": "Фаст-фуд, Американская"
   },
   {
     "id": "3",
-    "title": "Эйнштейн Паб",
-    "rating": "4.4★",
-    "url": "https://static.tildacdn.com/tild3732-6563-4532-b031-626330316466/yazyk-fullsize-01-01.png",
-    "distance": "0.6 км",
-    "categories": "Бар, Европейская"
+    "title": "Luka Pizza",
+    "rating": "4.7★",
+    "url": "http://test.rightdown.info/res/cafeimg/lukapizza.png",
+    "distance": "8.1 км",
+    "categories": "Фаст-фуд, Итальянская, Американская"
   },
   {
     "id": "4",
-    "title": "Еда Всегда",
-    "rating": "4.6★",
-    "url": "http://www.emvsegda.ru/images/logo_black.png",
+    "title": "Рис",
+    "rating": "4.2★",
+    "url": "https://rris.ru/static/img/logo-print.86393dae921f.png",
     "distance": "1.2 км",
-    "categories": "Столовая, Европейская, Азиатская"
+    "categories": "Европейская, Азиатская"
   },
   {
     "id": "5",
@@ -40,11 +40,11 @@
     "categories": "Кофе, Кондитерская, Американская, Европейсая"
   },
   {
-    "id": "4",
+    "id": "6",
     "title": "Еда Всегда",
     "rating": "4.6★",
-    "url": "http://www.emvsegda.ru/images/logo_black.png",
-    "distance": "1.2 км",
+    "url": "http://test.rightdown.info/res/cafeimg/edavsegda.jpg",
+    "distance": "0.8 км",
     "categories": "Столовая, Европейская, Азиатская"
   },
   {

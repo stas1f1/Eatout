@@ -78,17 +78,13 @@ public class CafeFragment extends Fragment {
         final ProductCardRecyclerViewAdapter adapter = new ProductCardRecyclerViewAdapter(
                 ProductEntry.initProductEntryList(getResources()));
         recyclerView.setAdapter(adapter);
-        /*
-        int largePadding = getResources().getDimensionPixelSize(R.dimen.eout_product_grid_spacing);
-        int smallPadding = getResources().getDimensionPixelSize(R.dimen.eout_product_grid_spacing_small);
-        recyclerView.addItemDecoration(new CafeGridItemDecoration(largePadding, smallPadding));
-        */
+
         recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(getActivity(), recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, final int position) {
                       if (global.orderCafe == null)
                           global.orderCafe = global.currentCafe ;
-                      Log.e("position", global.orderCafe.id);
+                      Log.e("global", global.orderCafe.id);
                       if (global.orderCafe.id != global.currentCafe.id)
                           {
                               AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -109,6 +105,7 @@ public class CafeFragment extends Fragment {
                                               dialog.cancel();
                                           }
                                       });
+                              builder.show();
                           }
                       else
                       {
@@ -140,7 +137,7 @@ public class CafeFragment extends Fragment {
         if (activity != null) {
             activity.setSupportActionBar(toolbar);
         }
-        toolbar.setTitle("Ближайшие рестораны");
+        toolbar.setTitle(global.currentCafe.title);
 
         toolbar.setNavigationOnClickListener(new NavigationIconClickListener(
                 getContext(),

@@ -14,9 +14,9 @@ public class Cart {
         contents.add(product);
     }
 
-    public static void removeEntry(ProductEntry product)
+    public static void removeEntry(int position)
     {
-        contents.remove(product);
+        contents.remove(position);
     }
 
     public static List<ProductEntry> getContents()
@@ -35,6 +35,17 @@ public class Cart {
         for (ProductEntry entry : contents)
             price += Integer.parseInt(entry.price);
         return price;
+    }
+
+    public static String toJSON()
+    {
+        String res = "";
+        for (ProductEntry entry : contents) {
+            if (!res.isEmpty())
+                res += ",";
+            res += "\"" + entry.ID + "\"";
+        }
+        return "[" + res + "]";
     }
 
     public static Boolean isEmpty()

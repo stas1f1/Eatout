@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.fiit.eatout.eatout.ProductCardViewHolder;
 import com.fiit.eatout.eatout.R;
+import com.fiit.eatout.eatout.globalValues.Cart;
 import com.fiit.eatout.eatout.network.ImageRequester;
 import com.fiit.eatout.eatout.network.ProductEntry;
 
@@ -26,6 +27,12 @@ public class CartCardRecyclerViewAdapter extends RecyclerView.Adapter<ProductCar
         this.productList = productList;
     }
 
+    public void removeEntry(int position)
+    {
+        productList.remove(position);
+        Cart.removeEntry(position);
+    }
+
     @NonNull
     @Override
     public ProductCardViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -37,7 +44,7 @@ public class CartCardRecyclerViewAdapter extends RecyclerView.Adapter<ProductCar
     public void onBindViewHolder(@NonNull ProductCardViewHolder holder, int position) {
         if (productList != null && position < productList.size()) {
             ProductEntry product = productList.get(position);
-            String price = product.price + "\u20BD";
+            String price = product.price + " \u20BD";
             holder.productTitle.setText(product.title);
             holder.productPrice.setText(price);
         }

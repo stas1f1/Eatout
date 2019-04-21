@@ -7,26 +7,6 @@
     app:cardElevation="0dp"
     app:cardPreventCornerOverlap="true">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <android.support.v7.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="8dp"
-            android:layout_margin="5dp"
-            android:elevation="10dp">
-
-            <com.android.volley.toolbox.NetworkImageView
-                android:id="@+id/product_image"
-                android:layout_width="@dimen/eout_product_card_image_width"
-                android:layout_height="@dimen/eout_product_card_image_height"
-                android:background="?attr/colorPrimaryDark"
-                android:scaleType="centerCrop" />
-        </android.support.v7.widget.CardView>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,23 +18,32 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/product_title"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="start"
-                    android:text="@string/eout_product_title"
-                    android:textAppearance="?attr/textAppearanceBody1" />
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/product_weight"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="start"
-                    android:text="@string/eout_product_title"
-                    android:textAppearance="?attr/textAppearanceBody2" />
+                    <TextView
+                        android:id="@+id/product_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:text="@string/eout_product_title"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/product_weight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="start"
+                        android:text="@string/eout_product_title"
+                        android:textAppearance="?attr/textAppearanceBody1"
+                        android:textColor="@color/textColorShade" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/product_price"
@@ -63,7 +52,8 @@
                     android:layout_weight="1"
                     android:gravity="right"
                     android:text="@string/eout_product_title"
-                    android:textAppearance="?attr/textAppearanceSubtitle1" />
+                    android:textAppearance="?attr/textAppearanceSubtitle1"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -88,7 +78,14 @@
                     android:layout_weight="1"
                     android:gravity="start"
                     android:text="@string/eout_product_title"
-                    android:textAppearance="?attr/textAppearanceBody2" />
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="@color/textColorShade" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"></LinearLayout>
 
             </LinearLayout>
 
@@ -101,6 +98,20 @@
                 android:textAppearance="?attr/textAppearanceBody2"
                 android:gravity="start" />
 
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:elevation="10dp"
+                app:cardCornerRadius="8dp">
+
+                <com.android.volley.toolbox.NetworkImageView
+                    android:id="@+id/product_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/colorPrimaryDark"
+                    android:scaleType="centerCrop" />
+            </android.support.v7.widget.CardView>
+
         </LinearLayout>
-    </LinearLayout>
 </android.support.design.card.MaterialCardView>

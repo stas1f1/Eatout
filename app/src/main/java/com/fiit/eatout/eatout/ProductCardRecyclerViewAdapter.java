@@ -13,6 +13,7 @@ import com.fiit.eatout.eatout.network.ImageRequester;
 import com.fiit.eatout.eatout.network.ProductEntry;
 
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Adapter used to show a simple grid of products.
@@ -40,7 +41,7 @@ public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<Product
             ProductEntry product = productList.get(position);
             String weight = product.weight + "г";
             String price = product.price + "\u20BD";
-            String time = String.valueOf(Double.parseDouble(product.time) / 60) + " минут";
+            String time = fmt(Double.parseDouble(product.time) / 60) + " минут";
             holder.productTitle.setText(product.title);
             holder.productWeight.setText(weight);
             holder.productTime.setText(time);
@@ -49,6 +50,14 @@ public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<Product
             Log.e("URL:",product.url);
             imageRequester.setImageFromUrl(holder.productImage, product.url);
         }
+    }
+
+    public static String fmt(double d)
+    {
+        if(d == (long) d)
+            return String.format("%s",(long)d);
+        else
+            return String.format(Locale.getDefault(),"%.1f",d);
     }
 
     @Override
