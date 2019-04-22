@@ -40,14 +40,14 @@ public class ProductEntry {
         this.description = description;
     }
 
-    private String ConvertTime(String secs)
+    public static String ConvertTime(String secs)
     {
         double mins = Double.parseDouble(secs) / 60;
         String suffix;
         int prelastDigit = ((int)Math.floor(mins) % 100)/10;
         int lastDigit = (int)Math.floor(mins) % 10;
 
-        if (prelastDigit == 1 || lastDigit > 4) suffix = " минут";
+        if (prelastDigit == 1 || lastDigit == 0 || lastDigit > 4) suffix = " минут";
         else if (lastDigit == 1) suffix = " минутa";
         else suffix = " минуты";
 

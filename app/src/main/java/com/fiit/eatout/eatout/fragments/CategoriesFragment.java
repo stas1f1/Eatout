@@ -28,7 +28,7 @@ public class CategoriesFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment with the ProductGrid theme
-        View view = inflater.inflate(R.layout.eout_tmp_fragment, container, false);
+        View view = inflater.inflate(R.layout.eout_orders_fragment, container, false);
 
         // Set up the tool bar
         setUpToolbar(view);

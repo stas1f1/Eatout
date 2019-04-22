@@ -76,7 +76,7 @@ public class CafeGridFragment extends Fragment {
         if (activity != null) {
             activity.setSupportActionBar(toolbar);
         }
-        toolbar.setTitle("Ближайшие рестораны");
+        toolbar.setTitle("Рестораны рядом");
 
         toolbar.setNavigationOnClickListener(new NavigationIconClickListener(
                 getContext(),

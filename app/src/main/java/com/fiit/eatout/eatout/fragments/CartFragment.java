@@ -61,6 +61,7 @@ public class CartFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         setTotal(view);
+        setTotalTime(view);
 
         SwipeController swipeController = new SwipeController(new SwipeControllerActions() {
             @Override
@@ -69,6 +70,7 @@ public class CartFragment extends Fragment {
                 adapter.notifyItemRemoved(position);
                 adapter.notifyItemRangeChanged(position, adapter.getItemCount());
                 setTotal(view);
+                setTotalTime(view);
             }
         });
 
@@ -95,7 +97,7 @@ public class CartFragment extends Fragment {
                             .setPositiveButton("Далее", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     Cart.clear();
-                                    ((NavigationHost) getActivity()).navigateTo(new OrdersFragment(), false);
+                                    ((NavigationHost) getActivity()).navigateTo(new CafeGridFragment(), false);
                                     dialog.cancel();
                                 }
                             });
@@ -126,6 +128,13 @@ public class CartFragment extends Fragment {
     {
         TextView total = view.findViewById(R.id.cart_total);
         String stotal = Cart.getPrice() + " \u20BD";
+        total.setText(stotal);
+    }
+
+    private void setTotalTime(View view)
+    {
+        TextView total = view.findViewById(R.id.cart_time_total);
+        String stotal =  Cart.getFormattedApproxCookingTime();
         total.setText(stotal);
     }
 

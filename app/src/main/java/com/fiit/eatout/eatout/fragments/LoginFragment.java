@@ -54,10 +54,10 @@ public class LoginFragment extends Fragment {
             public void onClick(View view) {
                 //test mode - omitting login
 
-                ((NavigationHost) getActivity()).navigateTo(new CafeGridFragment(), false); // Navigate to the next Fragment
+                //((NavigationHost) getActivity()).navigateTo(new CafeGridFragment(), false); // Navigate to the next Fragment
 
                 //release mode - fully functional login
-                /*
+
                 if (!isPasswordValid(passwordEditText.getText()))
                 {
                     passwordTextInput.setError(getString(R.string.eout_error_password));
@@ -70,7 +70,7 @@ public class LoginFragment extends Fragment {
                     passwordTextInput.setError(null); // Clear the error
                     ((NavigationHost) getActivity()).navigateTo(new CafeGridFragment(), false); // Navigate to the next Fragment
                 }
-                */
+
             }
         });
 

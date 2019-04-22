@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|left"
+        android:fontFamily="@font/rasa"
+        android:text="@string/eout_app_name"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textColor="@color/textColorLight"
+        android:textSize="54sp" />
+</LinearLayout>

@@ -52,9 +52,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:gravity="start"
                     android:text="@string/eout_product_title"
+                    android:textAlignment="textEnd"
                     android:textAppearance="?attr/textAppearanceBody2"
-                    android:gravity="start" />
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -63,19 +65,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:gravity="start"
                 android:text="@string/eout_product_description"
-                android:textAlignment="center"
-                android:textAppearance="?attr/textAppearanceBody2"
-                android:gravity="start" />
+                android:textAlignment="textStart"
+                android:textAppearance="?attr/textAppearanceBody2" />
 
             <TextView
                 android:id="@+id/cafe_distance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="start"
                 android:text="@string/eout_product_description"
-                android:textAlignment="center"
+                android:textAlignment="textStart"
                 android:textAppearance="?attr/textAppearanceBody2"
-                android:gravity="start" />
+                android:textColor="@color/textColorShade" />
 
         </LinearLayout>
     </LinearLayout>
